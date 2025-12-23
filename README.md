@@ -1,16 +1,41 @@
-# React + Vite
+# React Quiz App ✅ (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fast, clean **React Quiz** app built to practice real-world React fundamentals like **useReducer state management**, UI states, scoring, and a countdown timer.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** https://usereactquizz.netlify.app/  
+📦 **Repository:** https://github.com/Mahmoudfattah/10-reactquiz
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ✅ Multiple choice quiz flow (Start → Questions → Finish)
+- ⏱️ Countdown timer (auto-finish when time ends)
+- 🎯 Scoring system (points per question)
+- 🏆 High score tracking
+- 📊 Progress indicator (question index / total)
+- 🔁 Restart / reset quiz without refetching questions
+- 🧠 Clear UI states: `loading` / `ready` / `active` / `finish` / `error`
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tech Stack
+
+- **React**
+- **Vite**
+- **useReducer** for state management
+- **CSS** for styling
+
+---
+
+## 📂 Data Source (Questions)
+
+You can load questions in different ways:
+
+### Option A (Recommended for hosting): `public/questions.json`
+1. Create: `public/questions.json`
+2. Fetch:
+```js
+const res = await fetch("/questions.json");
+const data = await res.json();
+dispatch({ type: "dataReceived", payload: data.questions });
